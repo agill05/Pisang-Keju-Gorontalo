@@ -520,7 +520,7 @@
             </div>
         </div>
         <div class="hero-img" data-aos="zoom-in">
-            <img src="/image/pis_kej.jpeg" alt="Pisang Keju Lezat">
+            <img src="image/pis_kej.jpeg" alt="Pisang Keju Lezat">
         </div>
     </section>
 
@@ -556,7 +556,7 @@
         <div class="product-grid">
             <div class="product-card" data-aos="fade-up">
                 <div class="product-img-wrapper">
-                    <img src="/image/tiramisu_cheese.jpeg" alt="Tiramisu Cheese">
+                    <img src="image/tiramisu_cheese.jpeg" alt="Tiramisu Cheese">
                 </div>
                 <div class="product-info">
                     <h3>Tiramisu Cheese</h3>
@@ -568,7 +568,7 @@
             
             <div class="product-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="product-img-wrapper">
-                    <img src="/image/choco_crunchy.jpeg" alt="Choco Crunchy">
+                    <img src="image/choco_crunchy.jpeg" alt="Choco Crunchy">
                 </div>
                 <div class="product-info">
                     <h3>Choco Crunchy</h3>
@@ -580,7 +580,7 @@
 
             <div class="product-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="product-img-wrapper">
-                    <img src="/image/coklat_tiramisu.jpeg" alt="Coklat Tiramisu">
+                    <img src="image/coklat_tiramisu.jpeg" alt="Coklat Tiramisu">
                 </div>
                 <div class="product-info">
                     <h3>Coklat Tiramisu</h3>
@@ -698,37 +698,93 @@
             window.open(`https://wa.me/${number}?text=${encodeURIComponent(text)}`, '_blank');
         }
 
+        // Default testimonials
+        const defaultTestimonials = [
+            { name: "Andi Pratama", text: "Rasanya pecah banget di mulut! Pisangnya manis, kejunya gak pelit. Fix langganan!", rating: 5, userAdded: false },
+            { name: "Sarah Amelia", text: "Cocok banget buat temen ngopi sore. Pengirimannya juga cepet banget.", rating: 5, userAdded: false },
+            { name: "Budi Santoso", text: "Enak, harga terjangkau. Varian Tiramisunya juara sih.", rating: 4, userAdded: false }
+        ];
+
+        // Load testimonials from localStorage
+        function loadTestimonials() {
+            let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
+            if (!localStorage.getItem('testimonials')) {
+                localStorage.setItem('testimonials', JSON.stringify(testimonials));
+            }
+            renderTestimonials(testimonials);
+        }
+
+        // Render testimonials to DOM
+        function renderTestimonials(testimonials) {
+            const list = document.querySelector('.testimonial-list');
+            list.innerHTML = '';
+            testimonials.forEach((testimonial, index) => {
+                let starsHtml = '';
+                for(let i=0; i<testimonial.rating; i++) starsHtml += '★';
+                const deleteButton = testimonial.userAdded ? `<button class="delete-btn" data-index="${index}" style="margin-top: 1rem; background: #f44336; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Hapus</button>` : '';
+                const reviewHtml = `
+                    <div class="review-card" data-aos="fade-up">
+                        <div class="review-stars">${starsHtml}</div>
+                        <p>"${testimonial.text}"</p>
+                        <h5 style="margin-top: 1rem;">- ${testimonial.name}</h5>
+                        ${deleteButton}
+                    </div>
+                `;
+                list.insertAdjacentHTML('beforeend', reviewHtml);
+            });
+
+            // Add event listeners to delete buttons
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    deleteTestimonial(index);
+                });
+            });
+        }
+
+        // Delete testimonial
+        function deleteTestimonial(index) {
+            if (confirm('Apakah Anda yakin ingin menghapus ulasan ini?')) {
+                let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
+                testimonials.splice(index, 1); // Remove the testimonial at the index
+                localStorage.setItem('testimonials', JSON.stringify(testimonials));
+                renderTestimonials(testimonials);
+            }
+        }
+
         // Testimonial Form Logic
         document.getElementById('testimonialForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const name = document.getElementById('name').value;
             const text = document.getElementById('testimonial').value;
             const ratingEl = document.querySelector('input[name="rating"]:checked');
-            
+
             if(!ratingEl) {
                 alert("Mohon pilih rating bintang!");
                 return;
             }
 
-            const rating = ratingEl.value;
-            let starsHtml = '';
-            for(let i=0; i<rating; i++) starsHtml += '★';
+            const rating = parseInt(ratingEl.value);
+            const newTestimonial = { name, text, rating, userAdded: true };
 
-            const newReview = `
-                <div class="review-card" data-aos="fade-up">
-                    <div class="review-stars">${starsHtml}</div>
-                    <p>"${text}"</p>
-                    <h5 style="margin-top: 1rem;">- ${name}</h5>
-                </div>
-            `;
+            // Load existing testimonials
+            let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
+            testimonials.unshift(newTestimonial); // Add to beginning
 
-            document.querySelector('.testimonial-list').insertAdjacentHTML('afterbegin', newReview);
-            
+            // Save to localStorage
+            localStorage.setItem('testimonials', JSON.stringify(testimonials));
+
+            // Re-render testimonials
+            renderTestimonials(testimonials);
+
             // Reset Form
             this.reset();
             alert("Terima kasih atas ulasan Anda!");
         });
+
+        // Load testimonials on page load
+        document.addEventListener('DOMContentLoaded', loadTestimonials);
     </script>
 </body>
 </html>
