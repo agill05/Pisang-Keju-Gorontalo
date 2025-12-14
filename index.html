@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pisang Keju Gorontalo - Premium Snack</title>
+    <meta name="description" content="Pisang keju premium dari Gorontalo. Renyah, manis, dan melimpah kejunya.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FFC107; /* Kuning Keju */
+            --primary-dark: #FF9800;
+            --secondary: #5D4037; /* Coklat Tua */
+            --accent: #FF4081; /* Pink Aksen */
+            --light: #FFF8E1; /* Background Cream */
+            --white: #ffffff;
+            --gray: #757575;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--secondary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Navbar --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .btn-nav {
+            padding: 0.6rem 1.5rem;
+            background: var(--primary);
+            color: var(--secondary);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-nav:hover {
+            background: var(--primary-dark);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            padding-top: 80px; /* Offset navbar */
+            position: relative;
+            background: linear-gradient(135deg, #FFF8E1 50%, #FFECB3 100%);
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .hero-text span {
+            color: var(--primary-dark);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 10px 20px rgba(255, 152, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--secondary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-img {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-img img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 30px;
+            box-shadow: 20px 20px 0px rgba(255, 193, 7, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- Features / About --- */
+        .features {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            background: var(--light);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* --- Products --- */
+        .products {
+            padding: 5rem 5%;
+            background: var(--light);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img-wrapper {
+            height: 250px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: var(--accent);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-block:hover {
+            background: var(--primary-dark);
+        }
+
+        /* --- Testimonials --- */
+        .testimonials {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .testimonial-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-form-wrapper {
+            background: var(--primary);
+            padding: 2rem;
+            border-radius: var(--radius);
+            color: var(--secondary);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+            font-family: inherit;
+        }
+
+        .rating-input {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .rating-input input {
+            display: none;
+        }
+
+        .rating-input label {
+            font-size: 2rem;
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .rating-input input:checked ~ label,
+        .rating-input label:hover,
+        .rating-input label:hover ~ label {
+            color: white;
+        }
+
+        .testimonial-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .review-stars {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 4rem 5% 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 100px;
+                gap: 40px;
+            }
+
+            .hero-text {
+                padding-right: 0;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                text-align: center;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                transform: translateY(-200%);
+                transition: 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" class="logo">
+            <i class="fas fa-cheese"></i> PisangKeju<span style="color:var(--secondary)">GTO</span>
+        </a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang</a>
+            <a href="#produk">Menu</a>
+            <a href="#testimoni">Ulasan</a>
+            <a href="#kontak">Pesan Sekarang</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-text" data-aos="fade-right">
+            <h1>Nikmati Kelembutan <br><span>Pisang Keju</span> Premium</h1>
+            <p>Perpaduan sempurna pisang pilihan dari Gorontalo dengan topping keju melimpah. Renyah di luar, lembut di dalam.</p>
+            <div class="hero-buttons">
+                <a href="#produk" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Lihat Menu</a>
+                <a href="#about" class="btn btn-secondary">Tentang Kami</a>
+            </div>
+        </div>
+        <div class="hero-img" data-aos="zoom-in">
+            <img src="/image/pis_kej.jpeg" alt="Pisang Keju Lezat">
+        </div>
+    </section>
+
+    <section class="features" id="about">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Kenapa Harus Kami?</h2>
+            <p>Kualitas terbaik untuk kepuasan lidah Anda</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Bahan Segar</h3>
+                <p>Pisang diambil langsung dari petani lokal Gorontalo setiap hari.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon"><i class="fas fa-cheese"></i></div>
+                <h3>Keju Premium</h3>
+                <p>Menggunakan keju berkualitas tinggi yang gurih dan melimpah.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                <h3>Dibuat Higienis</h3>
+                <p>Proses pembuatan yang bersih dan mengutamakan kesehatan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="produk">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Menu Favorit</h2>
+            <p>Pilihan rasa terbaik yang wajib Anda coba</p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-img-wrapper">
+                    <img src="/image/tiramisu_cheese.jpeg" alt="Tiramisu Cheese">
+                </div>
+                <div class="product-info">
+                    <h3>Tiramisu Cheese</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang + Saus Tiramisu + Keju Parut</p>
+                    <span class="price">Rp 17.000</span>
+                    <button class="btn-block" onclick="orderWA('Tiramisu Cheese')">Pesan via WhatsApp</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-img-wrapper">
+                    <img src="/image/choco_crunchy.jpeg" alt="Choco Crunchy">
+                </div>
+                <div class="product-info">
+                    <h3>Choco Crunchy</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang + Coklat Krispi + Keju</p>
+                    <span class="price">Rp 17.000</span>
+                    <button class="btn-block" onclick="orderWA('Choco Crunchy')">Pesan via WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-img-wrapper">
+                    <img src="/image/coklat_tiramisu.jpeg" alt="Coklat Tiramisu">
+                </div>
+                <div class="product-info">
+                    <h3>Coklat Tiramisu</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang + Coklat + Saus Tiramisu + Keju</p>
+                    <span class="price">Rp 17.000</span>
+                    <button class="btn-block" onclick="orderWA('Coklat Tiramisu')">Pesan via WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimoni">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Kata Pelanggan</h2>
+            <p>Apa kata mereka tentang Pisang Keju Gorontalo?</p>
+        </div>
+
+        <div class="testimonial-container">
+            <div class="testimonial-form-wrapper" data-aos="flip-up">
+                <h3 style="color: white; margin-bottom: 1rem;">Kirim Testimoni Anda</h3>
+                <form id="testimonialForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="rating-input">
+                            <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="Sempurna">★</label>
+                            <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="Sangat Baik">★</label>
+                            <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="Baik">★</label>
+                            <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="Cukup">★</label>
+                            <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="Buruk">★</label>
+                        </div>
+                    </div>
+                    <textarea id="testimonial" rows="3" placeholder="Ceritakan pengalamanmu..." required></textarea>
+                    <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 1rem; border:none; cursor:pointer;">Kirim Ulasan</button>
+                </form>
+            </div>
+
+            <div class="testimonial-list">
+                <div class="review-card" data-aos="fade-up">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"Rasanya pecah banget di mulut! Pisangnya manis, kejunya gak pelit. Fix langganan!"</p>
+                    <h5 style="margin-top: 1rem;">- Andi Pratama</h5>
+                </div>
+                <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"Cocok banget buat temen ngopi sore. Pengirimannya juga cepet banget."</p>
+                    <h5 style="margin-top: 1rem;">- Sarah Amelia</h5>
+                </div>
+                <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="review-stars">★★★★☆</div>
+                    <p>"Enak, harga terjangkau. Varian Tiramisunya juara sih."</p>
+                    <h5 style="margin-top: 1rem;">- Budi Santoso</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="kontak">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="color: white; margin-bottom: 1rem; display:block;">
+                    <i class="fas fa-cheese"></i> PisangKeju<span style="color:var(--primary)">GTO</span>
+                </a>
+                <p style="color: #ddd; font-size: 0.9rem;">Menghadirkan kebahagiaan dalam setiap gigitan pisang keju.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#produk">Menu</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><i class="fab fa-whatsapp"></i> 0852-4066-7124</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jl. Piola Isa. Depan Alfamart</li>
+                    <li><i class="far fa-envelope"></i> order@pisangkeju.com</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ikuti Kami</h4>
+                <div style="display: flex; gap: 15px;">
+                    <a href="https://www.instagram.com/pisangkeju_gtlo?igsh=ZXFrNDVkYWdiZGYy" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@pisangkeju.gtlo?_r=1&_t=ZS-92CzGY3BoDC" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Pisang Keju Gorontalo. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init Animation
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // WhatsApp Order Logic
+        function orderWA(productName) {
+            const number = "6285240667124";
+            const text = `Halo, saya ingin memesan ${productName}. Apakah masih tersedia?`;
+            window.open(`https://wa.me/${number}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Testimonial Form Logic
+        document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const text = document.getElementById('testimonial').value;
+            const ratingEl = document.querySelector('input[name="rating"]:checked');
+            
+            if(!ratingEl) {
+                alert("Mohon pilih rating bintang!");
+                return;
+            }
+
+            const rating = ratingEl.value;
+            let starsHtml = '';
+            for(let i=0; i<rating; i++) starsHtml += '★';
+
+            const newReview = `
+                <div class="review-card" data-aos="fade-up">
+                    <div class="review-stars">${starsHtml}</div>
+                    <p>"${text}"</p>
+                    <h5 style="margin-top: 1rem;">- ${name}</h5>
+                </div>
+            `;
+
+            document.querySelector('.testimonial-list').insertAdjacentHTML('afterbegin', newReview);
+            
+            // Reset Form
+            this.reset();
+            alert("Terima kasih atas ulasan Anda!");
+        });
+    </script>
+</body>
+</html>
