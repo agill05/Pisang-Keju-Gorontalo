@@ -747,38 +747,6 @@
             </div>
         </footer>
 
-        <!-- Firebase SDK -->
-        <script type="module">
-          import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-          import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-          const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT_ID.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
-          };
-
-          let db = null;
-          if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
-            try {
-              const app = initializeApp(firebaseConfig);
-              db = getFirestore(app);
-            } catch (error) {
-              console.error("Firebase initialization failed:", error);
-            }
-          }
-
-          window.db = db;
-          window.collection = collection;
-          window.getDocs = getDocs;
-          window.addDoc = addDoc;
-          window.deleteDoc = deleteDoc;
-          window.doc = doc;
-        </script>
-
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
         AOS.init({
@@ -803,30 +771,12 @@
             { name: "Budi Santoso", text: "Enak, harga terjangkau. Varian Tiramisunya juara sih.", rating: 4, userAdded: false }
         ];
 
-        async function loadTestimonials() {
-            try {
-                const querySnapshot = await getDocs(collection(db, "testimonials"));
-                let testimonials = [];
-                querySnapshot.forEach((doc) => {
-                    testimonials.push({ id: doc.id, ...doc.data() });
-                });
-                // Jika belum ada ulasan di Firestore, tambahkan default
-                if (testimonials.length === 0) {
-                    for (const testimonial of defaultTestimonials) {
-                        await addDoc(collection(db, "testimonials"), testimonial);
-                    }
-                    testimonials = defaultTestimonials.map((t, index) => ({ id: `default-${index}`, ...t }));
-                }
-                renderTestimonials(testimonials);
-            } catch (error) {
-                console.error("Error loading testimonials:", error);
-                // Fallback ke localStorage jika Firebase gagal
-                let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
-                if (!localStorage.getItem('testimonials')) {
-                    localStorage.setItem('testimonials', JSON.stringify(testimonials));
-                }
-                renderTestimonials(testimonials);
+        function loadTestimonials() {
+            let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
+            if (!localStorage.getItem('testimonials')) {
+                localStorage.setItem('testimonials', JSON.stringify(testimonials));
             }
+            renderTestimonials(testimonials);
         }
 
         function renderTestimonials(testimonials) {
@@ -855,27 +805,16 @@
             });
         }
 
-        async function deleteTestimonial(index) {
+        function deleteTestimonial(index) {
             if (confirm('Apakah Anda yakin ingin menghapus ulasan ini?')) {
-                try {
-                    const testimonials = await getDocs(collection(db, "testimonials"));
-                    const testimonialToDelete = testimonials.docs[index];
-                    if (testimonialToDelete) {
-                        await deleteDoc(doc(db, "testimonials", testimonialToDelete.id));
-                        await loadTestimonials(); // Reload to update list
-                    }
-                } catch (error) {
-                    console.error("Error deleting testimonial:", error);
-                    // Fallback to localStorage
-                    let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
-                    testimonials.splice(index, 1);
-                    localStorage.setItem('testimonials', JSON.stringify(testimonials));
-                    renderTestimonials(testimonials);
-                }
+                let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
+                testimonials.splice(index, 1);
+                localStorage.setItem('testimonials', JSON.stringify(testimonials));
+                renderTestimonials(testimonials);
             }
         }
 
-        document.getElementById('testimonialForm').addEventListener('submit', async function(e) {
+        document.getElementById('testimonialForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const name = document.getElementById('name').value;
@@ -890,21 +829,15 @@
             const rating = parseInt(ratingEl.value);
             const newTestimonial = { name, text, rating, userAdded: true };
 
-            try {
-                await addDoc(collection(db, "testimonials"), newTestimonial);
-                await loadTestimonials(); // Reload to update list
-                this.reset();
-                alert("Terima kasih atas ulasan Anda!");
-            } catch (error) {
-                console.error("Error adding testimonial:", error);
-                // Fallback to localStorage
-                let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
-                testimonials.unshift(newTestimonial);
-                localStorage.setItem('testimonials', JSON.stringify(testimonials));
-                renderTestimonials(testimonials);
-                this.reset();
-                alert("Terima kasih atas ulasan Anda!");
-            }
+            let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
+            testimonials.unshift(newTestimonial);
+
+            localStorage.setItem('testimonials', JSON.stringify(testimonials));
+
+            renderTestimonials(testimonials);
+
+            this.reset();
+            alert("Terima kasih atas ulasan Anda!");
         });
 
         document.addEventListener('DOMContentLoaded', loadTestimonials);
