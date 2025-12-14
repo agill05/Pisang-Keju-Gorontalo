@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pisang Keju Gorontalo - Premium Snack</title>
-        <meta name="description"
-            content="Pisang keju premium dari Gorontalo. Renyah, manis, dan melimpah kejunya.">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Pisang Keju Gorontalo - Premium Snack</title>
+    <meta name="description" content="Pisang keju premium dari Gorontalo. Renyah, manis, dan melimpah kejunya. Pesan sekarang untuk menemani harimu!">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pisang Keju Gorontalo - Premium Snack">
+    <meta property="og:description" content="Rasakan sensasi pisang goreng renyah dengan topping keju melimpah khas Gorontalo.">
+    <meta property="og:image" content="image/pis_kej.jpeg">
 
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-            rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-        <style>
+    <style>
         :root {
             --primary: #FFC107;
             --primary-dark: #FF9800;
@@ -34,7 +35,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
+            /* PENTING: Memberi jarak scroll agar judul tidak tertutup Navbar */
+            scroll-padding-top: 100px; 
         }
 
         body {
@@ -45,6 +51,7 @@
             line-height: 1.6;
         }
 
+        /* --- Navbar --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -56,6 +63,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
         }
 
         .logo {
@@ -80,41 +88,44 @@
             font-weight: 500;
             transition: 0.3s;
             font-size: 1rem;
+            position: relative;
         }
 
         .nav-links a:hover {
             color: var(--primary-dark);
         }
 
-        .btn-nav {
-            padding: 0.6rem 1.5rem;
-            background: var(--primary);
-            color: var(--secondary);
-            border-radius: 50px;
-            font-weight: 600;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
             transition: 0.3s;
         }
 
-        .btn-nav:hover {
-            background: var(--primary-dark);
-            color: white;
-            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .hamburger {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--secondary);
         }
 
+        /* --- Hero Section --- */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 5%;
-            padding-top: 80px;
-            padding-bottom: 1rem;
+            padding-top: 20px; /* Adjusted padding */
+            padding-bottom: 3rem;
             position: relative;
             background: linear-gradient(135deg, #FFF8E1 50%, #FFECB3 100%);
         }
@@ -133,8 +144,10 @@
 
         .hero-text span {
             color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
         }
-
+        
         .hero-text p {
             font-size: 1.1rem;
             color: var(--gray);
@@ -147,21 +160,6 @@
             gap: 15px;
         }
 
-        .hero-small-card {
-            background: white;
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            margin-top: 1rem;
-            max-width: 400px;
-        }
-
-        .hero-small-card p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--secondary);
-        }
-
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
@@ -169,6 +167,8 @@
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-primary {
@@ -185,18 +185,19 @@
 
         .btn:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
         }
 
         .hero-img {
             flex: 1;
-            position: relative;
             display: flex;
             justify-content: center;
+            position: relative;
         }
 
         .hero-img img {
             width: 100%;
-            max-width: 500px;
+            max-width: 450px;
             border-radius: 30px;
             box-shadow: 20px 20px 0px rgba(255, 193, 7, 0.2);
             animation: float 6s ease-in-out infinite;
@@ -208,6 +209,7 @@
             100% { transform: translateY(0px); }
         }
 
+        /* --- Features --- */
         .features {
             padding: 5rem 5%;
             background: var(--white);
@@ -221,10 +223,12 @@
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            color: var(--secondary);
         }
 
         .section-header p {
             color: var(--gray);
+            font-size: 1.1rem;
         }
 
         .feature-grid {
@@ -235,12 +239,12 @@
 
         .feature-card {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             border-radius: var(--radius);
             text-align: center;
             box-shadow: var(--shadow);
             transition: 0.3s;
-            border: 1px solid #eee;
+            border: 1px solid #f0f0f0;
         }
 
         .feature-card:hover {
@@ -260,6 +264,7 @@
             margin: 0 auto 1.5rem;
         }
 
+        /* --- Products --- */
         .products {
             padding: 5rem 5%;
             background: var(--light);
@@ -287,7 +292,7 @@
         .product-img-wrapper {
             height: 250px;
             overflow: hidden;
-            background: #ddd;
+            background: #eee;
         }
 
         .product-img-wrapper img {
@@ -308,6 +313,7 @@
         .product-info h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            color: var(--secondary);
         }
 
         .price {
@@ -324,19 +330,22 @@
             text-align: center;
             background: var(--secondary);
             color: white;
-            padding: 0.8rem;
-            border-radius: 10px;
+            padding: 1rem;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
             font-family: inherit;
             font-weight: 600;
             transition: 0.3s;
+            font-size: 1rem;
         }
 
         .btn-block:hover {
             background: var(--primary-dark);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
+        /* --- Testimonials --- */
         .testimonials {
             padding: 5rem 5%;
             background: white;
@@ -345,17 +354,23 @@
         .testimonial-container {
             display: flex;
             flex-direction: column;
-            gap: 3rem;
+            gap: 4rem;
             max-width: 1000px;
             margin: 0 auto;
         }
 
         .testimonial-form-wrapper {
-            background: var(--primary);
-            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 2.5rem;
             border-radius: var(--radius);
-            color: var(--secondary);
+            color: white;
             box-shadow: var(--shadow);
+        }
+
+        .testimonial-form-wrapper h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         .form-group {
@@ -366,25 +381,33 @@
             width: 100%;
             padding: 1rem;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-top: 0.5rem;
             font-family: inherit;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.9);
         }
 
+        input:focus, textarea:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+        }
+
+        /* Star Rating CSS */
         .rating-input {
             display: flex;
             flex-direction: row-reverse;
-            justify-content: flex-end;
-            gap: 10px;
+            justify-content: center;
+            gap: 15px;
+            margin: 1rem 0;
         }
 
-        .rating-input input {
-            display: none;
-        }
+        .rating-input input { display: none; }
 
         .rating-input label {
-            font-size: 2rem;
-            color: rgba(255,255,255,0.5);
+            font-size: 2.5rem;
+            color: rgba(255,255,255,0.4);
             cursor: pointer;
             transition: 0.2s;
         }
@@ -392,7 +415,8 @@
         .rating-input input:checked ~ label,
         .rating-input label:hover,
         .rating-input label:hover ~ label {
-            color: white;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
 
         .testimonial-list {
@@ -407,39 +431,49 @@
             border-radius: var(--radius);
             border: 1px solid #eee;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
         }
 
         .review-stars {
             color: #FFD700;
             margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
+        .review-card p {
+            font-style: italic;
+            color: #555;
+        }
+
+        .review-card h5 {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        /* --- Footer --- */
         footer {
             background: var(--secondary);
             color: white;
-            padding: 4rem 5% 1rem;
+            padding: 5rem 5% 2rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 3rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .footer-col h4 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 1.5rem;
             color: var(--primary);
         }
 
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 0.8rem;
-        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 1rem; }
 
         .footer-col a {
             color: #ddd;
@@ -449,6 +483,29 @@
 
         .footer-col a:hover {
             color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-3px);
         }
 
         .copyright {
@@ -459,12 +516,45 @@
             color: #aaa;
         }
 
+        /* --- Floating WhatsApp Button --- */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- Mobile Responsive --- */
         @media (max-width: 768px) {
             .hero {
                 flex-direction: column-reverse;
                 text-align: center;
                 padding-top: 100px;
-                padding-bottom: 1rem;
                 gap: 40px;
             }
 
@@ -494,9 +584,10 @@
                 padding: 2rem;
                 gap: 1.5rem;
                 text-align: center;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
                 transform: translateY(-200%);
-                transition: 0.3s ease-in-out;
+                transition: 0.4s ease-in-out;
+                z-index: 999;
             }
 
             .nav-links.active {
@@ -504,267 +595,229 @@
             }
         }
     </style>
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <nav>
-            <a href="#" class="logo">
-                <i class="fas fa-cheese"></i> PisangKeju<span
-                    style="color:var(--secondary)">GTO</span>
-            </a>
-            <div class="hamburger" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
+    <nav>
+        <a href="#" class="logo">
+            <i class="fas fa-cheese" style="color: var(--primary);"></i> PisangKeju<span style="color:var(--secondary)">GTO</span>
+        </a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang</a>
+            <a href="#produk">Menu</a>
+            <a href="#testimoni">Ulasan</a>
+            <a href="#kontak" class="btn-nav">Kontak</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-text" data-aos="fade-right">
+            <h1>Nikmati Kelembutan <br><span>Pisang Keju</span> Premium</h1>
+            <p>Perpaduan sempurna pisang pilihan dari Gorontalo dengan topping keju melimpah. Renyah di luar, lembut di dalam.</p>
+            <div class="hero-buttons">
+                <a href="#produk" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Lihat Menu</a>
+                <a href="#about" class="btn btn-secondary">Tentang Kami</a>
             </div>
-            <div class="nav-links">
-                <a href="#home">Beranda</a>
-                <a href="#about">Tentang</a>
-                <a href="#produk">Menu</a>
-                <a href="#testimoni">Ulasan</a>
-                <a href="#kontak">Pesan Sekarang</a>
-            </div>
-        </nav>
+        </div>
+        <div class="hero-img" data-aos="zoom-in">
+            <img src="image/pis_kej.jpeg" alt="Pisang Keju Lezat">
+        </div>
+    </section>
 
-        <section class="hero" id="home">
-            <div class="hero-text" data-aos="fade-right">
-                <h1>Nikmati Kelembutan <br><span>Pisang Keju</span> Premium</h1>
-                <p>Perpaduan sempurna pisang pilihan dari Gorontalo dengan
-                    topping keju melimpah. Renyah di luar, lembut di dalam.</p>
-                <div class="hero-buttons">
-                    <a href="#produk" class="btn btn-primary"><i
-                            class="fas fa-shopping-cart"></i> Lihat Menu</a>
-                    <a href="#about" class="btn btn-secondary">Tentang Kami</a>
+    <section class="features" id="about">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Kenapa Harus Kami?</h2>
+            <p>Kualitas terbaik untuk kepuasan lidah Anda</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Bahan Segar</h3>
+                <p>Pisang diambil langsung dari petani lokal Gorontalo setiap hari.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon"><i class="fas fa-cheese"></i></div>
+                <h3>Keju Premium</h3>
+                <p>Menggunakan keju berkualitas tinggi yang gurih dan melimpah.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                <h3>Dibuat Higienis</h3>
+                <p>Proses pembuatan yang bersih dan mengutamakan kesehatan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="produk">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Menu Pisang Keju</h2>
+            <p>Pilihan rasa terbaik yang wajib Anda coba</p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card" data-aos="fade-up">
+                <div class="product-img-wrapper">
+                    <img src="image/tiramisu_cheese.jpeg" alt="Tiramisu Cheese" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Tiramisu Cheese</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang + Saus Tiramisu + Keju Parut</p>
+                    <span class="price">Rp 17.000</span>
+                    <button class="btn-block" onclick="orderWA('Tiramisu Cheese')">Pesan via WhatsApp</button>
                 </div>
             </div>
-            <div class="hero-img" data-aos="zoom-in">
-                <img src="image/pis_kej.jpeg" alt="Pisang Keju Lezat">
-            </div>
-        </section>
 
-        <section class="features" id="about">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Kenapa Harus Kami?</h2>
-                <p>Kualitas terbaik untuk kepuasan lidah Anda</p>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-card" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-                    <h3>Bahan Segar</h3>
-                    <p>Pisang diambil langsung dari petani lokal Gorontalo
-                        setiap hari.</p>
+            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-img-wrapper">
+                    <img src="image/choco_crunchy.jpeg" alt="Choco Crunchy" loading="lazy">
                 </div>
-                <div class="feature-card" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <div class="feature-icon"><i
-                            class="fas fa-cheese"></i></div>
-                    <h3>Keju Premium</h3>
-                    <p>Menggunakan keju berkualitas tinggi yang gurih dan
-                        melimpah.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up"
-                    data-aos-delay="300">
-                    <div class="feature-icon"><i class="fas fa-heart"></i></div>
-                    <h3>Dibuat Higienis</h3>
-                    <p>Proses pembuatan yang bersih dan mengutamakan
-                        kesehatan.</p>
+                <div class="product-info">
+                    <h3>Choco Crunchy</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang + Coklat Krispi + Keju</p>
+                    <span class="price">Rp 17.000</span>
+                    <button class="btn-block" onclick="orderWA('Choco Crunchy')">Pesan via WhatsApp</button>
                 </div>
             </div>
-        </section>
 
-        <section class="products" id="produk">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Menu Pisang Keju</h2>
-                <p>Pilihan rasa terbaik yang wajib Anda coba</p>
+            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-img-wrapper">
+                    <img src="image/coklat_tiramisu.jpeg" alt="Coklat Tiramisu" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>Coklat Tiramisu</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang + Coklat + Saus Tiramisu + Keju</p>
+                    <span class="price">Rp 17.000</span>
+                    <button class="btn-block" onclick="orderWA('Coklat Tiramisu')">Pesan via WhatsApp</button>
+                </div>
             </div>
-            <div class="product-grid">
-                <div class="product-card" data-aos="fade-up">
-                    <div class="product-img-wrapper">
-                        <img src="image/tiramisu_cheese.jpeg"
-                            alt="Tiramisu Cheese">
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimoni">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Kata Pelanggan</h2>
+            <p>Apa kata mereka tentang Pisang Keju Gorontalo?</p>
+        </div>
+
+        <div class="testimonial-container">
+            <div class="testimonial-form-wrapper" data-aos="flip-up">
+                <h3>Kirim Testimoni Anda</h3>
+                <form id="testimonialForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Nama Lengkap" required>
                     </div>
-                    <div class="product-info">
-                        <h3>Tiramisu Cheese</h3>
-                        <p
-                            style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang
-                            + Saus Tiramisu + Keju Parut</p>
-                        <span class="price">Rp 17.000</span>
-                        <button class="btn-block"
-                            onclick="orderWA('Tiramisu Cheese')">Pesan via
-                            WhatsApp</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <div class="product-img-wrapper">
-                        <img src="image/choco_crunchy.jpeg" alt="Choco Crunchy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Choco Crunchy</h3>
-                        <p
-                            style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang
-                            + Coklat Krispi + Keju</p>
-                        <span class="price">Rp 17.000</span>
-                        <button class="btn-block"
-                            onclick="orderWA('Choco Crunchy')">Pesan via
-                            WhatsApp</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <div class="product-img-wrapper">
-                        <img src="image/coklat_tiramisu.jpeg"
-                            alt="Coklat Tiramisu">
-                    </div>
-                    <div class="product-info">
-                        <h3>Coklat Tiramisu</h3>
-                        <p
-                            style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang
-                            + Coklat + Saus Tiramisu + Keju</p>
-                        <span class="price">Rp 17.000</span>
-                        <button class="btn-block"
-                            onclick="orderWA('Coklat Tiramisu')">Pesan via
-                            WhatsApp</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonials" id="testimoni">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Kata Pelanggan</h2>
-                <p>Apa kata mereka tentang Pisang Keju Gorontalo?</p>
-            </div>
-
-            <div class="testimonial-container">
-                <div class="testimonial-form-wrapper" data-aos="flip-up">
-                    <h3 style="color: white; margin-bottom: 1rem;">Kirim
-                        Testimoni Anda</h3>
-                    <form id="testimonialForm">
-                        <div class="form-group">
-                            <input type="text" id="name"
-                                placeholder="Nama Lengkap" required>
+                    <div class="form-group">
+                        <div class="rating-input">
+                            <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="Sempurna">★</label>
+                            <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="Sangat Baik">★</label>
+                            <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="Baik">★</label>
+                            <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="Cukup">★</label>
+                            <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="Buruk">★</label>
                         </div>
-                        <div class="form-group">
-                            <div class="rating-input">
-                                <input type="radio" id="star5" name="rating"
-                                    value="5" required><label for="star5"
-                                    title="Sempurna">★</label>
-                                <input type="radio" id="star4" name="rating"
-                                    value="4"><label for="star4"
-                                    title="Sangat Baik">★</label>
-                                <input type="radio" id="star3" name="rating"
-                                    value="3"><label for="star3"
-                                    title="Baik">★</label>
-                                <input type="radio" id="star2" name="rating"
-                                    value="2"><label for="star2"
-                                    title="Cukup">★</label>
-                                <input type="radio" id="star1" name="rating"
-                                    value="1"><label for="star1"
-                                    title="Buruk">★</label>
-                            </div>
-                        </div>
-                        <textarea id="testimonial" rows="3"
-                            placeholder="Ceritakan pengalamanmu..."
-                            required></textarea>
-                        <button type="submit" class="btn btn-secondary"
-                            style="width: 100%; margin-top: 1rem; border:none; cursor:pointer;">Kirim
-                            Ulasan</button>
-                    </form>
-                </div>
+                    </div>
+                    <textarea id="testimonial" rows="3" placeholder="Ceritakan pengalamanmu..." required></textarea>
+                    <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 1rem; border:none; cursor:pointer; font-weight:700;">Kirim Ulasan</button>
+                </form>
+            </div>
 
-                <div class="testimonial-list">
-                    <div class="review-card" data-aos="fade-up">
-                        <div class="review-stars">★★★★★</div>
-                        <p>"Rasanya pecah banget di mulut! Pisangnya manis, kejunya gak pelit. Fix langganan!"</p>
-                        <h5 style="margin-top: 1rem;">- Andi Pratama</h5>
-                    </div>
-                    <div class="review-card" data-aos="fade-up"
-                        data-aos-delay="100">
-                        <div class="review-stars">★★★★★</div>
-                        <p>"Cocok banget buat temen ngopi sore. Pengirimannya juga cepet banget."</p>
-                        <h5 style="margin-top: 1rem;">- Sarah Amelia</h5>
-                    </div>
-                    <div class="review-card" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="review-stars">★★★★☆</div>
-                        <p>"Enak, harga terjangkau. Varian Tiramisunya juara sih."</p>
-                        <h5 style="margin-top: 1rem;">- Budi Santoso</h5>
-                    </div>
+            <div class="testimonial-list">
+                </div>
+        </div>
+    </section>
+
+    <footer id="kontak">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="color: white; margin-bottom: 1rem; display:block;">
+                    <i class="fas fa-cheese"></i> PisangKeju<span style="color:var(--primary)">GTO</span>
+                </a>
+                <p style="color: #ddd; font-size: 0.9rem;">Menghadirkan kebahagiaan dalam setiap gigitan pisang keju.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#produk">Menu</a></li>
+                    <li><a href="#testimoni">Ulasan</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><i class="fab fa-whatsapp"></i> 0852-4066-7124</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jl. Piola Isa. Depan Alfamart</li>
+                    <li><i class="far fa-envelope"></i> order@pisangkeju.com</li>
+                    <li><i class="fas fa-clock"></i> Jam Operasional: 15.00 - 22.00</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ikuti Kami</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/pisangkeju_gtlo?igsh=ZXFrNDVkYWdiZGYy" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@pisangkeju.gtlo?_r=1&_t=ZS-92CzGY3BoDC" target="_blank"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Pisang Keju Gorontalo. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-        <footer id="kontak">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="logo"
-                        style="color: white; margin-bottom: 1rem; display:block;">
-                        <i class="fas fa-cheese"></i> PisangKeju<span
-                            style="color:var(--primary)">GTO</span>
-                    </a>
-                    <p style="color: #ddd; font-size: 0.9rem;">Menghadirkan
-                        kebahagiaan dalam setiap gigitan pisang keju.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Navigasi</h4>
-                    <ul>
-                        <li><a href="#home">Beranda</a></li>
-                        <li><a href="#about">Tentang Kami</a></li>
-                        <li><a href="#produk">Menu</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Hubungi Kami</h4>
-                    <ul>
-                        <li><i class="fab fa-whatsapp"></i> 0852-4066-7124</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Jl. Piola Isa.
-                            Depan Alfamart</li>
-                        <li><i class="far fa-envelope"></i>
-                            order@pisangkeju.com</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Ikuti Kami</h4>
-                    <div style="display: flex; gap: 15px;">
-                        <a
-                            href="https://www.instagram.com/pisangkeju_gtlo?igsh=ZXFrNDVkYWdiZGYy"
-                            target="_blank" style="font-size: 1.5rem;"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="#" style="font-size: 1.5rem;"><i
-                                class="fab fa-facebook"></i></a>
-                        <a
-                            href="https://www.tiktok.com/@pisangkeju.gtlo?_r=1&_t=ZS-92CzGY3BoDC"
-                            target="_blank" style="font-size: 1.5rem;"><i
-                                class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Pisang Keju Gorontalo. All Rights Reserved.</p>
-            </div>
-        </footer>
+    <a href="#" onclick="orderWA('Tanya Menu')" class="wa-float" title="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init Animation
         AOS.init({
             duration: 1000,
             once: true
         });
 
+        // Toggle Mobile Menu
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         }
 
+        // Auto Close Mobile Menu when link clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Smart WhatsApp Ordering
         function orderWA(productName) {
             const number = "6285240667124";
-            const text = `Halo, saya ingin memesan ${productName}. Apakah masih tersedia?`;
-            window.open(`https://wa.me/${number}?text=${encodeURIComponent(text)}`, '_blank');
+
+            // Set Greeting based on time
+            const hour = new Date().getHours();
+            // Check if closed
+            if (hour >= 11 && hour < 15) {
+                alert("Maaf, toko sedang tutup. Buka kembali pukul 15.00.");
+                return;
+            }
+            let greeting = "Pagi";
+            if (hour >= 15 && hour < 19) greeting = "Sore";
+            else if (hour >= 19) greeting = "Malam";
+
+            const text = `Halo Admin, selamat ${greeting}.%0A%0ASaya tertarik dengan menu *${productName}*.%0A%0AApakah masih tersedia? Saya ingin memesan.`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${number}&text=${text}`, '_blank');
         }
 
+        // Testimonial Logic
         const defaultTestimonials = [
             { name: "Andi Pratama", text: "Rasanya pecah banget di mulut! Pisangnya manis, kejunya gak pelit. Fix langganan!", rating: 5, userAdded: false },
             { name: "Sarah Amelia", text: "Cocok banget buat temen ngopi sore. Pengirimannya juga cepet banget.", rating: 5, userAdded: false },
@@ -782,36 +835,19 @@
         function renderTestimonials(testimonials) {
             const list = document.querySelector('.testimonial-list');
             list.innerHTML = '';
-            testimonials.forEach((testimonial, index) => {
+            testimonials.forEach((testimonial) => {
                 let starsHtml = '';
                 for(let i=0; i<testimonial.rating; i++) starsHtml += '★';
-                const deleteButton = testimonial.userAdded ? `<button class="delete-btn" data-index="${index}" style="margin-top: 1rem; background: #f44336; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Hapus</button>` : '';
+                
                 const reviewHtml = `
                     <div class="review-card" data-aos="fade-up">
                         <div class="review-stars">${starsHtml}</div>
                         <p>"${testimonial.text}"</p>
-                        <h5 style="margin-top: 1rem;">- ${testimonial.name}</h5>
-                        ${deleteButton}
+                        <h5>- ${testimonial.name}</h5>
                     </div>
                 `;
                 list.insertAdjacentHTML('beforeend', reviewHtml);
             });
-
-            document.querySelectorAll('.delete-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const index = parseInt(this.getAttribute('data-index'));
-                    deleteTestimonial(index);
-                });
-            });
-        }
-
-        function deleteTestimonial(index) {
-            if (confirm('Apakah Anda yakin ingin menghapus ulasan ini?')) {
-                let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
-                testimonials.splice(index, 1);
-                localStorage.setItem('testimonials', JSON.stringify(testimonials));
-                renderTestimonials(testimonials);
-            }
         }
 
         document.getElementById('testimonialForm').addEventListener('submit', function(e) {
@@ -837,10 +873,10 @@
             renderTestimonials(testimonials);
 
             this.reset();
-            alert("Terima kasih atas ulasan Anda!");
+            alert("Terima kasih! Ulasan Anda telah ditambahkan.");
         });
 
         document.addEventListener('DOMContentLoaded', loadTestimonials);
     </script>
-    </body>
+</body>
 </html>
