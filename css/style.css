@@ -595,6 +595,13 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
         /* --- Mobile Responsive --- */
         @media (max-width: 768px) {
             .hero {
