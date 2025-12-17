@@ -623,9 +623,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-    
+
+    html {
+        overflow-x: hidden;
+    }
+
     nav {
-        padding: 1rem 5%;
+        padding: 1rem;
     }
 
     .logo {
@@ -664,6 +668,8 @@ footer {
     .hero {
         flex-direction: column-reverse;
         text-align: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
         padding-top: 120px;
         padding-bottom: 3rem;
         gap: 30px;
@@ -697,10 +703,11 @@ footer {
     .hero-img img {
         max-width: 70%;
         height: auto;
+        box-shadow: 0 20px 0px rgba(255, 193, 7, 0.2);
     }
 
     .features, .products, .gallery, .testimonials {
-        padding: 3rem 1.5rem;
+        padding: 3rem 1rem;
     }
 
     .section-header {
@@ -731,7 +738,7 @@ footer {
 
     footer {
         text-align: center;
-        padding: 3rem 1.5rem 2rem;
+        padding: 3rem 1rem 2rem;
     }
     
     .footer-col {
