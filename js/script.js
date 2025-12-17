@@ -21,7 +21,7 @@ function orderWA(productName) {
     const hour = new Date().getHours();
 
     if (hour >= 23 || hour < 15) {
-        alert("Maaf, toko sedang tutup. Buka kembali pukul 15.00.");
+        document.getElementById('closedModal').style.display = 'block';
         return;
     }
 
@@ -32,6 +32,10 @@ function orderWA(productName) {
 
 function closeModal() {
     document.getElementById('paymentModal').style.display = 'none';
+}
+
+function closeClosedModal() {
+    document.getElementById('closedModal').style.display = 'none';
 }
 
 function sendProofWA() {
@@ -51,9 +55,13 @@ function sendProofWA() {
 }
 
 window.onclick = function(event) {
-    const modal = document.getElementById('paymentModal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
+    const paymentModal = document.getElementById('paymentModal');
+    const closedModal = document.getElementById('closedModal');
+    if (event.target == paymentModal) {
+        paymentModal.style.display = 'none';
+    }
+    if (event.target == closedModal) {
+        closedModal.style.display = 'none';
     }
 }
 
@@ -112,6 +120,9 @@ function prevSlide() {
 document.addEventListener('DOMContentLoaded', function() {
     loadTestimonials();
     showSlide(currentSlide);
+
+    document.querySelector('#closedModal .close').addEventListener('click', closeClosedModal);
+    document.querySelector('#closedModal .btn-primary').addEventListener('click', closeClosedModal);
 
     document.getElementById('testimonialForm').addEventListener('submit', function(e) {
         e.preventDefault();
