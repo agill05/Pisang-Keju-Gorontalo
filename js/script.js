@@ -85,32 +85,6 @@ function renderTestimonials(testimonials) {
     });
 }
 
-document.getElementById('testimonialForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value;
-    const text = document.getElementById('testimonial').value;
-    const ratingEl = document.querySelector('input[name="rating"]:checked');
-
-    if(!ratingEl) {
-        alert("Mohon pilih rating bintang!");
-        return;
-    }
-
-    const rating = parseInt(ratingEl.value);
-    const newTestimonial = { name, text, rating, userAdded: true };
-
-    let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
-    testimonials.unshift(newTestimonial);
-
-    localStorage.setItem('testimonials', JSON.stringify(testimonials));
-
-    renderTestimonials(testimonials);
-
-    this.reset();
-    alert("Terima kasih! Ulasan Anda telah ditambahkan.");
-});
-
 let currentSlide = 0;
 const slides = document.querySelectorAll('.gallery-slider img');
 const totalSlides = slides.length;
@@ -134,4 +108,30 @@ function prevSlide() {
 document.addEventListener('DOMContentLoaded', function() {
     loadTestimonials();
     showSlide(currentSlide);
+
+    document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const text = document.getElementById('testimonial').value;
+        const ratingEl = document.querySelector('input[name="rating"]:checked');
+
+        if(!ratingEl) {
+            alert("Mohon pilih rating bintang!");
+            return;
+        }
+
+        const rating = parseInt(ratingEl.value);
+        const newTestimonial = { name, text, rating, userAdded: true };
+
+        let testimonials = JSON.parse(localStorage.getItem('testimonials')) || defaultTestimonials;
+        testimonials.unshift(newTestimonial);
+
+        localStorage.setItem('testimonials', JSON.stringify(testimonials));
+
+        renderTestimonials(testimonials);
+
+        this.reset();
+        alert("Terima kasih! Ulasan Anda telah ditambahkan.");
+    });
 });
