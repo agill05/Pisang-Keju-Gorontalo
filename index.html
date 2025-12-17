@@ -4,20 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Pisang Keju Gorontalo - Premium Snack</title>
     <meta name="description" content="Pisang keju premium dari Gorontalo. Renyah, manis, dan melimpah kejunya. Pesan sekarang untuk menemani harimu!">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Pisang Keju Gorontalo - Premium Snack">
     <meta property="og:description" content="Rasakan sensasi pisang goreng renyah dengan topping keju melimpah khas Gorontalo.">
     <meta property="og:image" content="image/pis_kej.jpeg">
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -118,6 +113,23 @@
                     <button class="btn-block" onclick="orderWA('Coklat Tiramisu')">Pesan via WhatsApp</button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="galeri">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Galeri Produk</h2>
+            <p>Lihat berbagai variasi pisang keju kami</p>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-slider">
+                <img src="image/pis_kej.jpeg" alt="Pisang Keju Klasik" loading="lazy">
+                <img src="image/tiramisu_cheese.jpeg" alt="Tiramisu Cheese" loading="lazy">
+                <img src="image/choco_crunchy.jpeg" alt="Choco Crunchy" loading="lazy">
+                <img src="image/coklat_tiramisu.jpeg" alt="Coklat Tiramisu" loading="lazy">
+            </div>
+            <button class="gallery-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+            <button class="gallery-btn next-btn" onclick="nextSlide()">&#10095;</button>
         </div>
     </section>
 
