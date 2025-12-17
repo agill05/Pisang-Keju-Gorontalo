@@ -20,8 +20,22 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-// Smart WhatsApp Ordering
+// Smart WhatsApp Ordering with Payment Modal
 function orderWA(productName) {
+    // Store the selected product for later use
+    window.selectedProduct = productName;
+    // Open the payment modal
+    document.getElementById('paymentModal').style.display = 'block';
+}
+
+// Close the modal
+function closeModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+}
+
+// Send proof of payment via WhatsApp
+function sendProofWA() {
+    const productName = window.selectedProduct;
     const number = "6285240667124";
 
     // Set Greeting based on time
@@ -35,9 +49,19 @@ function orderWA(productName) {
     if (hour >= 15 && hour < 19) greeting = "Sore";
     else if (hour >= 19) greeting = "Malam";
 
-    const text = `Halo Admin, selamat ${greeting}.%0A%0ASaya tertarik dengan menu *${productName}*.%0A%0AApakah masih tersedia? Saya ingin memesan.`;
+    const text = `Halo Admin, selamat ${greeting}.%0A%0ASaya telah melakukan pembayaran untuk menu *${productName}*.%0A%0ABerikut adalah bukti pembayaran saya.`;
 
     window.open(`https://api.whatsapp.com/send?phone=${number}&text=${text}`, '_blank');
+    // Close the modal after sending
+    closeModal();
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('paymentModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
 }
 
 // Testimonial Logic
