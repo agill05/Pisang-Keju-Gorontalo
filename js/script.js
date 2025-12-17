@@ -1,3 +1,4 @@
+
 AOS.init({
     duration: 1000,
     once: true
@@ -16,11 +17,18 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         }
     });
 });
-
 function orderWA(productName) {
+    const hour = new Date().getHours();
+
+    if (hour >= 23 || hour < 15) {
+        alert("Maaf, toko sedang tutup. Buka kembali pukul 15.00.");
+        return;
+    }
+
     window.selectedProduct = productName;
     document.getElementById('paymentModal').style.display = 'block';
 }
+
 
 function closeModal() {
     document.getElementById('paymentModal').style.display = 'none';
@@ -32,10 +40,6 @@ function sendProofWA() {
 
     const hour = new Date().getHours();
 
-    if (hour >= 23 || hour < 15) {
-        alert("Maaf, toko sedang tutup. Buka kembali pukul 15.00.");
-        return;
-    }
     let greeting = "Pagi";
     if (hour >= 15 && hour < 19) greeting = "Sore";
     else if (hour >= 19) greeting = "Malam";
