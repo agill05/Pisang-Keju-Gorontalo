@@ -32,7 +32,7 @@ function sendProofWA() {
 
     const hour = new Date().getHours();
     
-    if (hour >= 11 && hour < 15) {
+    if (hour >= 23 || hour < 15) {
         alert("Maaf, toko sedang tutup. Buka kembali pukul 15.00.");
         return;
     }
