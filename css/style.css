@@ -495,33 +495,6 @@
             color: #aaa;
         }
 
-        /* --- Floating WhatsApp Button --- */
-        .wa-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: 0.3s;
-            animation: pulse 2s infinite;
-        }
-
-        .wa-float:hover {
-            transform: scale(1.1);
-            background-color: #128C7E;
-        }
-
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
