@@ -53,6 +53,12 @@ nav {
     gap: 10px;
 }
 
+.logo img {
+    height: 3.5rem;
+    width: auto;
+    border-radius: 50%;
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
