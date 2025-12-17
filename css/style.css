@@ -632,13 +632,56 @@
             margin-top: 1rem;
         }
 
-        /* --- Mobile Responsive --- */
+        /* --- Mobile Responsive Fix --- */
         @media (max-width: 768px) {
-            .hero {
-                flex-direction: column-reverse;
+            
+            /* 1. Perbaikan Header/Navbar agar tidak terlalu tebal */
+            nav {
+                padding: 1rem 5%; /* Mengurangi padding atas-bawah */
+            }
+
+            .logo {
+                font-size: 1.2rem; /* Mengecilkan sedikit font logo agar muat */
+            }
+
+            /* 2. Perbaikan Menu Dropdown (Hamburger Menu) */
+            .nav-links {
+                position: absolute;
+                top: 100%; /* Pas di bawah navbar */
+                left: 0;
+                width: 100%;
+                background: #ffffff; /* Pastikan background solid putih */
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
                 text-align: center;
-                padding-top: 80px;
-                gap: 40px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                transform: translateY(-150%); /* Sembunyikan ke atas */
+                transition: transform 0.4s ease-in-out;
+                z-index: 998; /* Pastikan di bawah tombol hamburger tapi di atas konten */
+                opacity: 0; /* Tambahan agar benar-benar hilang saat closed */
+                pointer-events: none; /* Agar tidak bisa diklik saat closed */
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .hamburger {
+                display: block;
+                z-index: 999; /* Tombol harus selalu di paling atas */
+            }
+
+            /* 3. Perbaikan Hero Section (Agar tidak tertutup header) */
+            .hero {
+                flex-direction: column-reverse; /* Gambar di atas, Teks di bawah (opsional, atau biarkan default) */
+                text-align: center;
+                padding-top: 120px; /* PENTING: Memberi jarak agar tidak tertutup Navbar Sticky */
+                padding-bottom: 3rem;
+                gap: 30px;
+                min-height: auto; /* Hilangkan paksaan tinggi layar penuh */
             }
 
             .hero-text {
@@ -646,80 +689,75 @@
             }
 
             .hero-text h1 {
-                font-size: 2rem;
+                font-size: 2rem; /* Kecilkan judul */
+                margin-bottom: 1rem;
+            }
+
+            .hero-text p {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
             }
 
             .hero-buttons {
                 justify-content: center;
+                flex-wrap: wrap; /* Agar tombol turun ke bawah jika layar sangat kecil */
             }
 
-            .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
+            .hero-img {
                 width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                transform: translateY(-200%);
-                transition: 0.4s ease-in-out;
-                z-index: 999;
+                margin-bottom: 1rem;
             }
 
-            .nav-links.active {
-                transform: translateY(0);
+            .hero-img img {
+                max-width: 70%; /* Agar gambar pisang tidak terlalu raksasa di HP */
+                height: auto;
             }
 
+            /* 4. Perbaikan Padding Section Lainnya */
             .features, .products, .gallery, .testimonials {
-                padding: 3rem 5%;
+                padding: 3rem 1.5rem; /* Padding samping dikecilkan agar area konten lebih luas */
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
             }
 
             .section-header h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
-            .section-header p {
-                font-size: 1rem;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
+            /* 5. Perbaikan Grid System (Agar kartu tidak gepeng) */
+            .feature-grid, 
+            .product-grid, 
+            .testimonial-list, 
+            .footer-grid {
+                grid-template-columns: 1fr; /* Paksa menjadi 1 kolom penuh ke bawah */
+                gap: 2rem;
             }
 
             .gallery-slider img {
-                height: 250px;
+                height: 250px; /* Sesuaikan tinggi galeri */
             }
 
-            .testimonial-list {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
+            /* 6. Perbaikan Modal & Footer */
             .modal-content {
-                margin: 20% auto;
+                margin: 30% auto; /* Turunkan sedikit posisi modal */
                 padding: 1.5rem;
-                width: 95%;
+                width: 90%;
             }
 
-            .modal-content h2 {
-                font-size: 1.5rem;
+            footer {
+                text-align: center;
+                padding: 3rem 1.5rem 2rem;
+            }
+            
+            .footer-col {
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Ratakan tengah semua elemen footer */
             }
 
-            .qris-container {
-                margin: 1.5rem 0;
+            .social-icons {
+                justify-content: center;
             }
         }
