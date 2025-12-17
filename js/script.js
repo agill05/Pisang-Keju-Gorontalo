@@ -1,16 +1,13 @@
-// Init Animation
 AOS.init({
     duration: 1000,
     once: true
 });
 
-// Toggle Mobile Menu
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
     navLinks.classList.toggle('active');
 }
 
-// Auto Close Mobile Menu when link clicked
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         const navLinks = document.querySelector('.nav-links');
@@ -20,27 +17,21 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-// Smart WhatsApp Ordering with Payment Modal
 function orderWA(productName) {
-    // Store the selected product for later use
     window.selectedProduct = productName;
-    // Open the payment modal
     document.getElementById('paymentModal').style.display = 'block';
 }
 
-// Close the modal
 function closeModal() {
     document.getElementById('paymentModal').style.display = 'none';
 }
 
-// Send proof of payment via WhatsApp
 function sendProofWA() {
     const productName = window.selectedProduct;
     const number = "6285240667124";
 
-    // Set Greeting based on time
     const hour = new Date().getHours();
-    // Check if closed
+    
     if (hour >= 11 && hour < 15) {
         alert("Maaf, toko sedang tutup. Buka kembali pukul 15.00.");
         return;
@@ -52,11 +43,9 @@ function sendProofWA() {
     const text = `Halo Admin, selamat ${greeting}.%0A%0ASaya telah melakukan pembayaran untuk menu *${productName}*.%0A%0ABerikut adalah bukti pembayaran saya.`;
 
     window.open(`https://api.whatsapp.com/send?phone=${number}&text=${text}`, '_blank');
-    // Close the modal after sending
     closeModal();
 }
 
-// Close modal when clicking outside
 window.onclick = function(event) {
     const modal = document.getElementById('paymentModal');
     if (event.target == modal) {
@@ -64,7 +53,6 @@ window.onclick = function(event) {
     }
 }
 
-// Testimonial Logic
 const defaultTestimonials = [
     { name: "Andi Pratama", text: "Rasanya pecah banget di mulut! Pisangnya manis, kejunya gak pelit. Fix langganan!", rating: 5, userAdded: false },
     { name: "Sarah Amelia", text: "Cocok banget buat temen ngopi sore. Pengirimannya juga cepet banget.", rating: 5, userAdded: false },
@@ -123,7 +111,6 @@ document.getElementById('testimonialForm').addEventListener('submit', function(e
     alert("Terima kasih! Ulasan Anda telah ditambahkan.");
 });
 
-// Gallery Slider Logic
 let currentSlide = 0;
 const slides = document.querySelectorAll('.gallery-slider img');
 const totalSlides = slides.length;
@@ -144,7 +131,6 @@ function prevSlide() {
     showSlide(currentSlide - 1);
 }
 
-// Initialize gallery
 document.addEventListener('DOMContentLoaded', function() {
     loadTestimonials();
     showSlide(currentSlide);
