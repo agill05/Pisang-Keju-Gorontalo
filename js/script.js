@@ -17,17 +17,23 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         }
     });
 });
+function preventScroll(e) {
+    e.preventDefault();
+}
+
 function orderWA(productName) {
     const hour = new Date().getHours();
 
     if (hour >= 23 || hour < 15) {
         document.body.classList.add('no-scroll');
+        document.body.addEventListener('touchmove', preventScroll, { passive: false });
         document.getElementById('closedModal').style.display = 'block';
         return;
     }
 
     window.selectedProduct = productName;
     document.body.classList.add('no-scroll');
+    document.body.addEventListener('touchmove', preventScroll, { passive: false });
     document.getElementById('paymentModal').style.display = 'block';
 }
 
@@ -35,11 +41,13 @@ function orderWA(productName) {
 function closeModal() {
     document.getElementById('paymentModal').style.display = 'none';
     document.body.classList.remove('no-scroll');
+    document.body.removeEventListener('touchmove', preventScroll, { passive: false });
 }
 
 function closeClosedModal() {
     document.getElementById('closedModal').style.display = 'none';
     document.body.classList.remove('no-scroll');
+    document.body.removeEventListener('touchmove', preventScroll, { passive: false });
 }
 
 function sendProofWA() {
@@ -64,10 +72,12 @@ window.onclick = function(event) {
     if (event.target == paymentModal) {
         paymentModal.style.display = 'none';
         document.body.classList.remove('no-scroll');
+        document.body.removeEventListener('touchmove', preventScroll, { passive: false });
     }
     if (event.target == closedModal) {
         closedModal.style.display = 'none';
         document.body.classList.remove('no-scroll');
+        document.body.removeEventListener('touchmove', preventScroll, { passive: false });
     }
 }
 
