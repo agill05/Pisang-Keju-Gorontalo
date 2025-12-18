@@ -760,4 +760,15 @@ footer {
     .social-icons {
         justify-content: center;
     }
+
+    .footer-col .logo {
+        display: flex !important; 
+        flex-direction: row;      
+        justify-content: center;  
+        align-items: center;      
+        margin: 0 auto 1.5rem !important;
+        gap: 10px;
+        width: fit-content;       
+    }
+
 }
