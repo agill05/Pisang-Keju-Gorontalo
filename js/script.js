@@ -24,7 +24,7 @@ function preventScroll(e) {
 function orderWA(productName) {
     const hour = new Date().getHours();
 
-    if (hour >= 23 || hour < 15) {
+    if (hour >= 23 || hour < 17) {
         document.body.classList.add('no-scroll');
         document.body.addEventListener('touchmove', preventScroll, { passive: false });
         document.getElementById('closedModal').style.display = 'block';
