@@ -32,8 +32,6 @@ function orderWA(productName) {
     }
 
     window.selectedProduct = productName;
-    document.body.classList.add('no-scroll');
-    document.body.addEventListener('touchmove', preventScroll, { passive: false });
     document.getElementById('paymentModal').style.display = 'block';
 }
 
