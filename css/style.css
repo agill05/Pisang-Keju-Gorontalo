@@ -632,6 +632,11 @@ footer {
     margin-top: 1rem;
 }
 
+.footer-col span {
+  color: #ddd;
+}
+
+
 @media (max-width: 768px) {
 
     html {
