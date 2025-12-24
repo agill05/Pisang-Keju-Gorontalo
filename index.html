@@ -1,276 +1,338 @@
 <!DOCTYPE html>
 <html lang="id">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pisang Keju Gorontalo - Premium Snack</title>
-    <meta name="description"
-        content="Pisang keju premium dari Gorontalo. Renyah, manis, dan melimpah kejunya. Pesan sekarang untuk menemani harimu!">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Pisang Keju Gorontalo - Premium Snack">
-    <meta property="og:description"
-        content="Rasakan sensasi pisang goreng renyah dengan topping keju melimpah khas Gorontalo.">
-    <meta property="og:image" content="image/pis_kej.jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pisang Keju Gorontalo - Premium Snack</title>
+        <meta name="description"
+            content="Pisang keju premium dari Gorontalo. Renyah, manis, dan melimpah kejunya. Pesan sekarang untuk menemani harimu!">
+        <meta property="og:type" content="website">
+        <meta property="og:title"
+            content="Pisang Keju Gorontalo - Premium Snack">
+        <meta property="og:description"
+            content="Rasakan sensasi pisang goreng renyah dengan topping keju melimpah khas Gorontalo.">
+        <meta property="og:image" content="image/pis_kej.jpeg">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
 
-<body>
+    <body>
 
-    <nav>
-        <a href="#" class="logo">
-            <img src="image/logo-pisang-keju.jpg" alt="Pisang Keju Gorontalo Logo"> PisangKeju<span
-                style="color:var(--secondary)">Gorontalo</span>
-        </a>
-        <div class="hamburger" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="nav-links">
-            <a href="#home">Beranda</a>
-            <a href="#about">Tentang</a>
-            <a href="#produk">Menu</a>
-            <a href="#testimoni">Ulasan</a>
-            <a href="#kontak" class="btn-nav">Kontak</a>
-        </div>
-    </nav>
-
-    <section class="hero" id="home">
-        <div class="hero-text" data-aos="fade-right">
-            <h1>Nikmati Kelembutan <br><span>Pisang Keju</span> Premium</h1>
-            <p>Perpaduan sempurna pisang pilihan dari Gorontalo dengan topping keju melimpah. Renyah di luar, lembut di
-                dalam.</p>
-            <div class="hero-buttons">
-                <a href="#produk" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Lihat Menu</a>
-                <a href="#about" class="btn btn-secondary">Tentang Kami</a>
+        <nav>
+            <a href="#" class="logo">
+                <img src="image/logo-pisang-keju.jpg"
+                    alt="Pisang Keju Gorontalo Logo"> PisangKeju<span
+                    style="color:var(--secondary)">Gorontalo</span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
-        </div>
-        <div class="hero-img" data-aos="zoom-in">
-            <img src="image/pis_kej.jpeg" alt="Pisang Keju Lezat">
-        </div>
-    </section>
+            <div class="nav-links">
+                <a href="#home">Beranda</a>
+                <a href="#about">Tentang</a>
+                <a href="#produk">Menu</a>
+                <a href="#testimoni">Ulasan</a>
+                <a href="#kontak" class="btn-nav">Kontak</a>
+            </div>
+        </nav>
 
-    <section class="features" id="about">
-        <div class="section-header" data-aos="fade-up">
-            <h2>Kenapa Harus Kami?</h2>
-            <p>Kualitas terbaik untuk kepuasan lidah Anda</p>
-        </div>
-        <div class="feature-grid">
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-                <h3>Bahan Segar</h3>
-                <p>Pisang diambil langsung dari petani lokal Gorontalo setiap hari.</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-icon"><i class="fas fa-cheese"></i></div>
-                <h3>Keju Premium</h3>
-                <p>Menggunakan keju berkualitas tinggi yang gurih dan melimpah.</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-icon"><i class="fas fa-heart"></i></div>
-                <h3>Dibuat Higienis</h3>
-                <p>Proses pembuatan yang bersih dan mengutamakan kesehatan.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="products" id="produk">
-        <div class="section-header" data-aos="fade-up">
-            <h2>Menu Pisang Keju</h2>
-            <p>Pilihan rasa terbaik yang wajib Anda coba</p>
-        </div>
-        <div class="product-grid">
-            <div class="product-card" data-aos="fade-up">
-                <div class="product-img-wrapper">
-                    <img src="image/tiramisu_cheese.jpeg" alt="Tiramisu Cheese" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>Tiramisu Cheese</h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang + Saus Tiramisu + Keju Parut
-                    </p>
-                    <span class="price">Rp 17.000</span>
-                    <button class="btn-block" onclick="orderWA('Tiramisu Cheese')">Pesan via WhatsApp</button>
+        <section class="hero" id="home">
+            <div class="hero-text" data-aos="fade-right">
+                <h1>Nikmati Kelembutan <br><span>Pisang Keju</span> Premium</h1>
+                <p>Perpaduan sempurna pisang pilihan dari Gorontalo dengan
+                    topping keju melimpah. Renyah di luar, lembut di
+                    dalam.</p>
+                <div class="hero-buttons">
+                    <a href="#produk" class="btn btn-primary"><i
+                            class="fas fa-shopping-cart"></i> Lihat Menu</a>
+                    <a href="#about" class="btn btn-secondary">Tentang Kami</a>
                 </div>
             </div>
+            <div class="hero-img" data-aos="zoom-in">
+                <img src="image/pis_kej.jpeg" alt="Pisang Keju Lezat">
+            </div>
+        </section>
 
-            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="product-img-wrapper">
-                    <img src="image/choco_crunchy.jpeg" alt="Choco Crunchy" loading="lazy">
+        <section class="features" id="about">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Kenapa Harus Kami?</h2>
+                <p>Kualitas terbaik untuk kepuasan lidah Anda</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Bahan Segar</h3>
+                    <p>Pisang diambil langsung dari petani lokal Gorontalo
+                        setiap hari.</p>
                 </div>
-                <div class="product-info">
-                    <h3>Choco Crunchy</h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang + Coklat Krispi + Keju</p>
-                    <span class="price">Rp 17.000</span>
-                    <button class="btn-block" onclick="orderWA('Choco Crunchy')">Pesan via WhatsApp</button>
+                <div class="feature-card" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="feature-icon"><i
+                            class="fas fa-cheese"></i></div>
+                    <h3>Keju Premium</h3>
+                    <p>Menggunakan keju berkualitas tinggi yang gurih dan
+                        melimpah.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Dibuat Higienis</h3>
+                    <p>Proses pembuatan yang bersih dan mengutamakan
+                        kesehatan.</p>
                 </div>
             </div>
+        </section>
 
-            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="product-img-wrapper">
-                    <img src="image/coklat_tiramisu.jpeg" alt="Coklat Tiramisu" loading="lazy">
-                </div>
-                <div class="product-info">
-                    <h3>Coklat Tiramisu</h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang + Coklat + Saus Tiramisu +
-                        Keju</p>
-                    <span class="price">Rp 17.000</span>
-                    <button class="btn-block" onclick="orderWA('Coklat Tiramisu')">Pesan via WhatsApp</button>
-                </div>
+        <section class="products" id="produk">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Menu Pisang Keju</h2>
+                <p>Pilihan rasa terbaik yang wajib Anda coba</p>
             </div>
-        </div>
-    </section>
-
-    <section class="gallery" id="galeri">
-        <div class="section-header" data-aos="fade-up">
-            <h2>Galeri Produk</h2>
-            <p>Lihat berbagai variasi pisang keju kami</p>
-        </div>
-        <div class="gallery-container">
-            <div class="gallery-slider">
-                <img src="image/pis_kej.jpeg" alt="Pisang Keju Klasik" loading="lazy">
-                <img src="image/tiramisu_cheese.jpeg" alt="Tiramisu Cheese" loading="lazy">
-                <img src="image/choco_crunchy.jpeg" alt="Choco Crunchy" loading="lazy">
-                <img src="image/coklat_tiramisu.jpeg" alt="Coklat Tiramisu" loading="lazy">
-            </div>
-            <button class="gallery-btn prev-btn" onclick="prevSlide()">&#10094;</button>
-            <button class="gallery-btn next-btn" onclick="nextSlide()">&#10095;</button>
-        </div>
-    </section>
-
-    <section id="testimoni">
-        <div class="section-header" data-aos="fade-up">
-            <h2>Kata Pelanggan</h2>
-            <p>Apa kata mereka tentang Pisang Keju Gorontalo?</p>
-        </div>
-
-        <div class="testimonial-container">
-            <div class="testimonial-form-wrapper" data-aos="flip-up">
-                <h3>Kirim Testimoni Anda</h3>
-                <form id="testimonialForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Nama Lengkap" required>
+            <div class="product-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-img-wrapper">
+                        <img src="image/tiramisu_cheese.jpeg"
+                            alt="Tiramisu Cheese" loading="lazy">
                     </div>
-                    <div class="form-group">
-                        <div class="rating-input">
-                            <input type="radio" id="star5" name="rating" value="5" required><label for="star5"
-                                title="Sempurna">★</label>
-                            <input type="radio" id="star4" name="rating" value="4"><label for="star4"
-                                title="Sangat Baik">★</label>
-                            <input type="radio" id="star3" name="rating" value="3"><label for="star3"
-                                title="Baik">★</label>
-                            <input type="radio" id="star2" name="rating" value="2"><label for="star2"
-                                title="Cukup">★</label>
-                            <input type="radio" id="star1" name="rating" value="1"><label for="star1"
-                                title="Buruk">★</label>
+                    <div class="product-info">
+                        <h3>Tiramisu Cheese</h3>
+                        <p
+                            style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang
+                            + Saus Tiramisu + Keju Parut
+                        </p>
+                        <span class="price">Rp 17.000</span>
+                        <button class="btn-block"
+                            onclick="orderWA('Tiramisu Cheese')">Pesan via
+                            WhatsApp</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="product-img-wrapper">
+                        <img src="image/choco_crunchy.jpeg" alt="Choco Crunchy"
+                            loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Choco Crunchy</h3>
+                        <p
+                            style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang
+                            + Coklat Krispi + Keju</p>
+                        <span class="price">Rp 17.000</span>
+                        <button class="btn-block"
+                            onclick="orderWA('Choco Crunchy')">Pesan via
+                            WhatsApp</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="product-img-wrapper">
+                        <img src="image/coklat_tiramisu.jpeg"
+                            alt="Coklat Tiramisu" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Coklat Tiramisu</h3>
+                        <p
+                            style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">Pisang
+                            + Coklat + Saus Tiramisu +
+                            Keju</p>
+                        <span class="price">Rp 17.000</span>
+                        <button class="btn-block"
+                            onclick="orderWA('Coklat Tiramisu')">Pesan via
+                            WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="galeri">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Galeri Produk</h2>
+                <p>Lihat berbagai variasi pisang keju kami</p>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-slider">
+                    <img src="image/pis_kej.jpeg" alt="Pisang Keju Klasik"
+                        loading="lazy">
+                    <img src="image/tiramisu_cheese.jpeg" alt="Tiramisu Cheese"
+                        loading="lazy">
+                    <img src="image/choco_crunchy.jpeg" alt="Choco Crunchy"
+                        loading="lazy">
+                    <img src="image/coklat_tiramisu.jpeg" alt="Coklat Tiramisu"
+                        loading="lazy">
+                </div>
+                <button class="gallery-btn prev-btn"
+                    onclick="prevSlide()">&#10094;</button>
+                <button class="gallery-btn next-btn"
+                    onclick="nextSlide()">&#10095;</button>
+            </div>
+        </section>
+
+        <section id="testimoni">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Kata Pelanggan</h2>
+                <p>Apa kata mereka tentang Pisang Keju Gorontalo?</p>
+            </div>
+
+            <div class="testimonial-container">
+                <div class="testimonial-form-wrapper" data-aos="flip-up">
+                    <h3>Kirim Testimoni Anda</h3>
+                    <form id="testimonialForm">
+                        <div class="form-group">
+                            <input type="text" id="name"
+                                placeholder="Nama Lengkap" required>
                         </div>
+                        <div class="form-group">
+                            <div class="rating-input">
+                                <input type="radio" id="star5" name="rating"
+                                    value="5" required><label for="star5"
+                                    title="Sempurna">★</label>
+                                <input type="radio" id="star4" name="rating"
+                                    value="4"><label for="star4"
+                                    title="Sangat Baik">★</label>
+                                <input type="radio" id="star3" name="rating"
+                                    value="3"><label for="star3"
+                                    title="Baik">★</label>
+                                <input type="radio" id="star2" name="rating"
+                                    value="2"><label for="star2"
+                                    title="Cukup">★</label>
+                                <input type="radio" id="star1" name="rating"
+                                    value="1"><label for="star1"
+                                    title="Buruk">★</label>
+                            </div>
+                        </div>
+                        <textarea id="testimonial" rows="3"
+                            placeholder="Ceritakan pengalamanmu..."
+                            required></textarea>
+                        <button type="submit" class="btn btn-secondary"
+                            style="width: 100%; margin-top: 1rem; border:none; cursor:pointer; font-weight:700;">Kirim
+                            Ulasan</button>
+                    </form>
+                </div>
+
+                <div class="testimonial-list">
+                </div>
+            </div>
+        </section>
+
+        <footer id="kontak">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo"
+                        style="color: white; margin-bottom: 1rem; display:block;">
+                        <img src="image/logo-pisang-keju.jpg"
+                            alt="Pisang Keju Gorontalo Logo"> PisangKeju<span
+                            style="color:var(--primary)">Gorontalo</span>
+                    </a>
+                    <p style="color: #ddd; font-size: 0.9rem;">Menghadirkan
+                        kebahagiaan dalam setiap gigitan pisang keju.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#produk">Menu</a></li>
+                        <li><a href="#testimoni">Ulasan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hubungi Kami</h4>
+                    <ul>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/6282346901793"
+                                target="_blank" rel="noopener noreferrer"
+                                class="footer-link">
+                                0823-4690-1793
+                            </a>
+                        </li>
+
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.app.goo.gl/jLJkzF7aHZhpZpSB6"
+                                target="_blank" rel="noopener noreferrer"
+                                class="footer-link">
+                                Jl. Piola Isa, Dulomo Selatan, Kota Utara, Kota
+                                Gorontalo
+                            </a>
+                        </li>
+
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Jam Operasional: 15.00 - 22.00</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-icons">
+                        <a
+                            href="https://www.instagram.com/pisangkeju_gtlo?igsh=ZXFrNDVkYWdiZGYy"
+                            target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a
+                            href="https://www.tiktok.com/@pisangkeju.gtlo?_r=1&_t=ZS-92CzGY3BoDC"
+                            target="_blank"><i
+                                class="fab fa-tiktok"></i></a>
                     </div>
-                    <textarea id="testimonial" rows="3" placeholder="Ceritakan pengalamanmu..." required></textarea>
-                    <button type="submit" class="btn btn-secondary"
-                        style="width: 100%; margin-top: 1rem; border:none; cursor:pointer; font-weight:700;">Kirim
-                        Ulasan</button>
-                </form>
+                </div>
             </div>
-
-            <div class="testimonial-list">
+            <div class="copyright">
+                <p>&copy; 2025 Pisang Keju Gorontalo. All Rights Reserved.</p>
             </div>
-        </div>
-    </section>
+        </footer>
 
-    <footer id="kontak">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="#" class="logo" style="color: white; margin-bottom: 1rem; display:block;">
-                    <img src="image/logo-pisang-keju.jpg" alt="Pisang Keju Gorontalo Logo"> PisangKeju<span
-                        style="color:var(--primary)">Gorontalo</span>
-                </a>
-                <p style="color: #ddd; font-size: 0.9rem;">Menghadirkan kebahagiaan dalam setiap gigitan pisang keju.
-                </p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#produk">Menu</a></li>
-                    <li><a href="#testimoni">Ulasan</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Hubungi Kami</h4>
-                <ul>
-                    <li>
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/6285240667124" target="_blank" rel="noopener noreferrer"
-                            class="footer-link">
-                            0852-4066-7124
-                        </a>
-                    </li>
-
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <a href="https://maps.app.goo.gl/jLJkzF7aHZhpZpSB6" target="_blank" rel="noopener noreferrer"
-                            class="footer-link">
-                            Jl. Piola Isa, Dulomo Selatan, Kota Utara, Kota Gorontalo
-                        </a>
-                    </li>
-
-                    <li>
-                        <i class="fas fa-clock"></i>
-                        <span>Jam Operasional: 15.00 - 22.00</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Ikuti Kami</h4>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/pisangkeju_gtlo?igsh=ZXFrNDVkYWdiZGYy" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@pisangkeju.gtlo?_r=1&_t=ZS-92CzGY3BoDC" target="_blank"><i
-                            class="fab fa-tiktok"></i></a>
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Pembayaran Terlebih Dahulu</h2>
+                <p>Untuk memesan, silakan scan QRIS di bawah ini dan lakukan
+                    pembayaran.</p>
+                <div class="qris-container">
+                    <img src="image/qris-code.jpeg" alt="QRIS Payment"
+                        class="qris-image">
+                </div>
+                <p>Setelah pembayaran berhasil, klik tombol di bawah untuk
+                    mengirim bukti pembayaran via WhatsApp.</p>
+                <div class="modal-buttons">
+                    <a href="image/qris-code.jpeg" download="qris-code.jpeg"
+                        class="btn btn-secondary">Unduh QRIS</a>
+                    <button class="btn btn-primary"
+                        onclick="sendProofWA()">Kirim Bukti Pembayaran</button>
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 Pisang Keju Gorontalo. All Rights Reserved.</p>
-        </div>
-    </footer>
 
-    <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Pembayaran Terlebih Dahulu</h2>
-            <p>Untuk memesan, silakan scan QRIS di bawah ini dan lakukan pembayaran.</p>
-            <div class="qris-container">
-                <img src="image/qris-code.jpeg" alt="QRIS Payment" class="qris-image">
-            </div>
-            <p>Setelah pembayaran berhasil, klik tombol di bawah untuk mengirim bukti pembayaran via WhatsApp.</p>
-            <div class="modal-buttons">
-                <a href="image/qris-code.jpeg" download="qris-code.jpeg" class="btn btn-secondary">Unduh QRIS</a>
-                <button class="btn btn-primary" onclick="sendProofWA()">Kirim Bukti Pembayaran</button>
+        <div id="closedModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeClosedModal()">&times;</span>
+                <h2><i class="fas fa-clock"></i> Toko Sedang Tutup</h2>
+                <p>Maaf, saat ini toko kami sedang tutup. Kami buka kembali
+                    pukul <strong>15.00 WITA</strong> hingga
+                    <strong>23.00 WITA</strong>.
+                </p>
+                <p>Silakan kembali lagi nanti untuk menikmati pisang keju
+                    premium kami!</p>
+                <div class="modal-buttons">
+                    <button class="btn btn-primary"
+                        onclick="closeClosedModal()">Tutup</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="closedModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeClosedModal()">&times;</span>
-            <h2><i class="fas fa-clock"></i> Toko Sedang Tutup</h2>
-            <p>Maaf, saat ini toko kami sedang tutup. Kami buka kembali pukul <strong>15.00 WITA</strong> hingga
-                <strong>23.00 WITA</strong>.
-            </p>
-            <p>Silakan kembali lagi nanti untuk menikmati pisang keju premium kami!</p>
-            <div class="modal-buttons">
-                <button class="btn btn-primary" onclick="closeClosedModal()">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
-</body>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 
 </html>
