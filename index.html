@@ -44,7 +44,7 @@
 
         <section class="hero" id="home">
             <div class="hero-text" data-aos="fade-right">
-                <h1>Nikmati Kelembutan <br><span>Pisang Keju</span> Premium</h1>
+                <h1>Bersama Lebih Nikmat</h1>
                 <p>Perpaduan sempurna pisang pilihan dari Gorontalo dengan
                     topping keju melimpah. Renyah di luar, lembut di
                     dalam.</p>
@@ -145,6 +145,8 @@
                     </div>
                 </div>
             </div>
+
+            <p style="text-align: center; margin: 2rem 0; color: #666; font-size: 1rem;">Selain itu, Pisang Goreng kami juga tersedia dengan topping tambahan seperti Keju, Oreo, Milo, dan Kacang untuk variasi rasa yang lebih menarik.</p>
 
             <h3 style="text-align: center; margin: 4rem 0 2rem; color: var(--secondary); font-size: 1.8rem;">Pisang Nugget</h3>
             <div class="product-grid">
@@ -356,6 +358,49 @@
                     <button class="btn btn-primary"
                         onclick="sendProofWA()">Kirim Bukti Pembayaran</button>
                 </div>
+            </div>
+        </div>
+
+        <div id="toppingModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeToppingModal()">&times;</span>
+                <h2>Pilih Topping Tambahan</h2>
+                <p>Pilih satu topping tambahan untuk produk Anda:</p>
+                <form id="toppingForm">
+                    <div class="topping-options">
+                        <label class="topping-option">
+                            <input type="radio" name="topping" value="Keju" required>
+                            <div class="topping-icon">
+                                <i class="fas fa-cheese"></i>
+                            </div>
+                            <span>Keju</span>
+                        </label>
+                        <label class="topping-option">
+                            <input type="radio" name="topping" value="Oreo">
+                            <div class="topping-icon">
+                                <i class="fas fa-cookie-bite"></i>
+                            </div>
+                            <span>Oreo</span>
+                        </label>
+                        <label class="topping-option">
+                            <input type="radio" name="topping" value="Milo">
+                            <div class="topping-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <span>Milo</span>
+                        </label>
+                        <label class="topping-option">
+                            <input type="radio" name="topping" value="Kacang">
+                            <div class="topping-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <span>Kacang</span>
+                        </label>
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="submit" class="btn btn-primary">Lanjutkan ke Pembayaran</button>
+                    </div>
+                </form>
             </div>
         </div>
 

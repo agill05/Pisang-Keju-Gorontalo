@@ -24,15 +24,15 @@ function preventScroll(e) {
 function orderWA(productName) {
     const hour = new Date().getHours();
 
-    if (hour >= 23 || hour < 15) {
-        document.body.classList.add('no-scroll');
-        document.body.addEventListener('touchmove', preventScroll, { passive: false });
-        document.getElementById('closedModal').style.display = 'block';
-        return;
-    }
+    // if (hour >= 23 || hour < 15) {
+    //     document.body.classList.add('no-scroll');
+    //     document.body.addEventListener('touchmove', preventScroll, { passive: false });
+    //     document.getElementById('closedModal').style.display = 'block';
+    //     return;
+    // }
 
     window.selectedProduct = productName;
-    document.getElementById('paymentModal').style.display = 'block';
+    document.getElementById('toppingModal').style.display = 'block';
 }
 
 
@@ -44,6 +44,12 @@ function closeModal() {
 
 function closeClosedModal() {
     document.getElementById('closedModal').style.display = 'none';
+    document.body.classList.remove('no-scroll');
+    document.body.removeEventListener('touchmove', preventScroll, { passive: false });
+}
+
+function closeToppingModal() {
+    document.getElementById('toppingModal').style.display = 'none';
     document.body.classList.remove('no-scroll');
     document.body.removeEventListener('touchmove', preventScroll, { passive: false });
 }
@@ -66,9 +72,15 @@ function sendProofWA() {
 
 window.onclick = function(event) {
     const paymentModal = document.getElementById('paymentModal');
+    const toppingModal = document.getElementById('toppingModal');
     const closedModal = document.getElementById('closedModal');
     if (event.target == paymentModal) {
         paymentModal.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+        document.body.removeEventListener('touchmove', preventScroll, { passive: false });
+    }
+    if (event.target == toppingModal) {
+        toppingModal.style.display = 'none';
         document.body.classList.remove('no-scroll');
         document.body.removeEventListener('touchmove', preventScroll, { passive: false });
     }
@@ -137,6 +149,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector('#closedModal .close').addEventListener('click', closeClosedModal);
     document.querySelector('#closedModal .btn-primary').addEventListener('click', closeClosedModal);
+
+    document.getElementById('toppingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const toppingEl = document.querySelector('input[name="topping"]:checked');
+
+        if(!toppingEl) {
+            alert("Mohon pilih topping!");
+            return;
+        }
+
+        const topping = toppingEl.value;
+        window.selectedTopping = topping;
+        window.selectedProduct = `${window.selectedProduct} + ${topping}`;
+
+        closeToppingModal();
+        document.getElementById('paymentModal').style.display = 'block';
+    });
+
+    document.querySelectorAll('.topping-option').forEach(option => {
+        option.addEventListener('click', function() {
+            document.querySelectorAll('.topping-option').forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
 
     document.getElementById('testimonialForm').addEventListener('submit', function(e) {
         e.preventDefault();
