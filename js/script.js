@@ -24,12 +24,12 @@ function preventScroll(e) {
 function orderWA(productName) {
     const hour = new Date().getHours();
 
-    // if (hour >= 23 || hour < 15) {
-    //     document.body.classList.add('no-scroll');
-    //     document.body.addEventListener('touchmove', preventScroll, { passive: false });
-    //     document.getElementById('closedModal').style.display = 'block';
-    //     return;
-    // }
+    if (hour >= 23 || hour < 15) {
+        document.body.classList.add('no-scroll');
+        document.body.addEventListener('touchmove', preventScroll, { passive: false });
+        document.getElementById('closedModal').style.display = 'block';
+        return;
+    }
 
     window.selectedProduct = productName;
     document.getElementById('toppingModal').style.display = 'block';
